@@ -4,6 +4,7 @@ const port = 5000
 const { User } = require("./models/User")
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
+<<<<<<< HEAD
 const config = require('./config/key');
 const { mongoURI } = require('./config/dev')
 
@@ -34,4 +35,12 @@ app.post('/register', (req, res) => {
     })
 });
 app.listen(port, () => console.log(`Example app listening on port ${port}!`)); //5000번에서 실행
+=======
+mongoose.connect(config.mongoURI, {
+    useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false
+}).then(() => console.log('MongoDB Connected...'))
+    .catch(err => console.log(err))
+app.get('/', (req, res) => res.send('Hello World!')) // /에 hello world 출력
+app.listen(port, () => console.log(`Example app listening on port ${port}!`)) //5000번에서 실행
+>>>>>>> 520387b6a1cbb5cb014c33e123ba50687d46733b
 
